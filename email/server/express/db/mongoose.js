@@ -1,3 +1,6 @@
+// How to start the docker volume with 
+// https://docs.docker.com/storage/volumes/
+
 const mongoose = require('mongoose');
 const config = require('config');
 

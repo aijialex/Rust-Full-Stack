@@ -4,14 +4,16 @@ const router = Router();
 
 const {
     listEmails,
+    getEmail,
     registerEmail,
     deleteEmail,
     updateEmail
 } = require("../controllers/emailController");
 
 router.get("/", listEmails);
+router.get("/:email", getEmail);
 router.post("/", registerEmail);
-router.put("/", updateEmail);
-router.delete("/", deleteEmail);
+router.put("/:email", updateEmail);
+router.delete("/:email", deleteEmail);
 
 module.exports = router;
