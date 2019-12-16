@@ -165,7 +165,14 @@ You can **like** and share it with others.
 
 1. [How to use Python Scrapy to crawl This Week in Rust]
 
+## Email
+
+1. [Rust lettre CLI example with email templates and an attachment](https://github.com/steadylearner/Rust-Full-Stack/tree/master/email/client/lettre)
+2. [Email REST API JSON webserivce server with Express and Mongoose](https://github.com/steadylearner/Rust-Full-Stack/tree/master/email/server/express)
+
 ## What you will learn with it
+
+The most of the codes here is relevant to Rust. But, you can find the example codes of JavaScript, Python, Golang, Docker, some databases etc. I collect codes I can share to this repository.
 
 1. How to use HTML, CSS and Markdown in Rust Frontend
 2. How to include NPM packages and JavaScript modules in it
@@ -175,10 +182,6 @@ You can **like** and share it with others.
 6. How to modulize your Rust project
 7. How to deploy it
 8. How to write sitemaps and metatags for it
-
-## CWD
-
-Rust login features prototype at **auth/javascript/express**.
 
 ## Contact
 
