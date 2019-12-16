@@ -1,5 +1,7 @@
-// How to start the docker volume with 
-// https://docs.docker.com/storage/volumes/
+// $docker volume create mongodbdata
+// $docker run -d -v mongodbdata:/data/db --name mongo -p 27017:27017 mongo 
+
+// https://rominirani.com/docker-tutorial-series-part-7-data-volumes-93073a1b5b72
 
 const mongoose = require('mongoose');
 const config = require('config');

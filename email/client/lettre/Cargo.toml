@@ -12,3 +12,6 @@ uuid = { version = "0.8", features = ["v4"] }
 dotenv = "0.15.0"
 console = "0.9.1"
 mime = "0.3.14"
+# serde = "1.0.104"
+# serde_json = "1.0.44"
+# requests = "0.0.30"
