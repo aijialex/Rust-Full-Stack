@@ -11,7 +11,7 @@ Then, install the npm packages with $yarn
 
 ## How to test it
 
-Start the server with $yarn dev or $node server.js
+Start the server with **$yarn dev** or **$node server.js**. Then, use these commands.
 
 1. Register an email
 
