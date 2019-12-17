@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["www.steadylearner.com"]
 edition = "2018"
 
+# Use this in main function with Requests and async await later
+# https://github.com/async-rs/async-std
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 # https://github.com/lettre/lettre/issues/373
 [dependencies]
