@@ -6,7 +6,7 @@ use crate::db_connection::establish_connection;
 use tonic::{Request, Response, Status};
 
 use crate::user::{
-    server::Crud, CreateUserReply, CreateUserRequest, DeleteUserReply, Empty, UpdateUserReply,
+    user_service_server::UserService, CreateUserReply, CreateUserRequest, DeleteUserReply, Empty, UpdateUserReply,
     UpdateUserRequest, UserReply, UserRequest, Users,
 };
 
@@ -17,7 +17,7 @@ pub struct User {}
 // https://stackoverflow.com/questions/42622015/how-to-define-an-optional-field-in-protobuf-3/42634681
 // Should write similar logics similar to delete_user, delete_users functions
 #[tonic::async_trait]
-impl Crud for User {
+impl UserService for User {
     // It works.
     async fn get_user(&self, request: Request<UserRequest>) -> Result<Response<UserReply>, Status> {
         println!("Got a request: {:#?}", &request);
@@ -30,26 +30,8 @@ impl Crud for User {
             .query("SELECT * FROM users WHERE id = $1", &[&id])
             .unwrap();
 
-        // https://docs.rs/postgres/0.15.2/postgres/rows/struct.Rows.html
-        // Should write logic for this if you could make more complicate protobuf
-        // enum { UserReply, String }
-        // if rows.is_empty() {
-        //
-        // } else {
-        //
-        // }
-
-        // println!("{:#?}", rows);
-        // println!("{:#?}", rows.get(0));
-        // https://docs.rs/postgres/0.17.0-alpha.1/postgres/row/struct.Row.html
-
         let row = rows.get(0);
-        println!("{:#?}", &row);
-
-        // https://github.com/chronotope/chrono
-        // https://docs.rs/postgres/0.17.0-alpha.1/postgres/types/trait.FromSql.html#tymethod.from_sql
-        // cannot infer type
-        // the trait `postgres::types::FromSql` is not implemented for
+        // println!("{:#?}", &row);
 
         let date_of_birth: NaiveDate = row.get(3);
 
@@ -64,7 +46,6 @@ impl Crud for User {
         Ok(Response::new(reply))
     }
 
-    // It works.
     async fn list_users(&self, request: Request<Empty>) -> Result<Response<Users>, Status> {
         println!("Got a request: {:#?}", &request);
         let conn = establish_connection();
@@ -84,19 +65,11 @@ impl Crud for User {
             v.push(user);
         }
 
-        // rows.len()
-
-        // message Users {
-        //     repeated UserReply users = 1;
-        // }
-        // (repeated, vec), (users, users)
-
         let reply = Users { users: v };
 
         Ok(Response::new(reply))
     }
 
-    // Test with create_users, it shows errors to help you.
     async fn create_user(
         &self,
         request: Request<CreateUserRequest>,
@@ -178,14 +151,13 @@ impl Crud for User {
             }
         } else {
             UpdateUserReply {
-                message: format!("Update {} user with id {}", &number_of_rows_affected, &id),
+                message: format!("Update {} user with id {}.", &number_of_rows_affected, &id),
             }
         };
 
         Ok(Response::new(reply))
     }
 
-    // It works.
     async fn delete_user(
         &self,
         request: Request<UserRequest>,
