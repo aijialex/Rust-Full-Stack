@@ -170,6 +170,18 @@ You can **like** and share it with others.
 1. [Rust lettre CLI example with email templates and an attachment](https://github.com/steadylearner/Rust-Full-Stack/tree/master/email/client/lettre)
 2. [Email REST API JSON webserivce server with Express and Mongoose](https://github.com/steadylearner/Rust-Full-Stack/tree/master/email/server/express)
 
+## Microservices(CWD)
+
+You can find microservices examples built with **Warp**, **Tonic**, **Postgresql**, **Redis**. The mongodb, Actix, Rocket example will be included also.
+
+1. [gRPC client and server](https://github.com/steadylearner/Rust-Full-Stack/tree/master/microservices)
+
+## Resume
+
+You can find easily testable projects at [Resume repository](https://github.com/steadylearner/resume). If you are an employer, ask me to upload some projects there or here.
+
+**I can deploy them with a single command to AWS**.
+
 ## What you will learn with it
 
 The most of the codes here is relevant to Rust. But, you can find the example codes of JavaScript, Python, Golang, Docker, some databases etc. I collect codes I can share to this repository.

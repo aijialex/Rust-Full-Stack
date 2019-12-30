@@ -8,4 +8,4 @@ curl -w "@curl-format.txt" -o /dev/null -s "http://0.0.0.0:8000/api/user/v1/stea
 
 ## Result
 
-Redis is faster?.
+Redis is faster?
