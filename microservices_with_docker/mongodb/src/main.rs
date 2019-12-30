@@ -2,18 +2,39 @@
 // https://docs.rs/mongodb/0.9.0/mongodb/struct.Collection.html
 // Or, $cargo doc -p mongodb --open
 
+// Refer to this example.
+// https://medium.com/@louis.beaumont/rest-api-with-rust-mongodb-10eeb6bd51d7
+
 extern crate mongodb;
 use mongodb::{
     Client,
+    // The authors should think how to make easily startable examples.
     // options::ClientOptions
 };
+
+#[macro_use]
+extern crate bson;
+use bson::doc;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::with_uri_str("mongodb://0.0.0.0:27017")?;
 
-    for db_name in client.list_database_names(None)? {
-        println!("{}", db_name);
+    let db = client.database("emails");
+    for coll_name in db.list_collection_names(None)? {
+        println!("collection: {}", coll_name);
     }
+
+    let coll = db.collection("emails");
+    // Where is doc! macro?, Not in documenation API.
+    let result = coll.insert_one(doc! { "email": "steady@learner.com", "response": false,}, None)?;
+    println!("{:#?}", result);
+    // InsertOneResult {
+    //     inserted_id: ObjectId(ObjectId(5e0a4c87009c794000b522b7)),
+    // }
+
+    // In mongob shell
+    // db.emails.find()
+
     Ok(())
 }
 
