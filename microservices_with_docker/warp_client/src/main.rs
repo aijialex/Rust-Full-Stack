@@ -1,5 +1,7 @@
 extern crate pretty_env_logger;
 #[macro_use] extern crate log;
+// This is to test files in benches/
+extern crate reqwest;
 
 extern crate tonic;
 mod user {
@@ -37,6 +39,9 @@ use self::{
     },
 
 };
+
+// // It will only work with $cargo bench
+// #[cfg(bench)] mod benches;
 
 // It will only work with $cargo test
 #[cfg(test)] mod tests;
