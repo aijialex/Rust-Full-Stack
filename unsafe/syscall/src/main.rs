@@ -1,6 +1,6 @@
 use std::io;
 
-// and: http://man7.org/linux/man-pages/man2/write.2.html
+// Read http://man7.org/linux/man-pages/man2/write.2.html
 #[cfg(not(target_os = "windows"))]
 #[link(name = "c")]
 extern "C" {
